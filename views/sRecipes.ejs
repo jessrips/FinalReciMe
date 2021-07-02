@@ -1,0 +1,54 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+    <h1>ReciMe</h1>
+    <p> This is where your recipes are stored!</p>
+</div>
+
+<h2>Your Go-To Recipes</h2>
+<% items.forEach(item => { %>
+     <li>Name: <%= item.item %> | Type: <%= item.recipeType %> | Difficulty: <%=item.difficulty %></li>
+     <a href="<%= item.sourceLink %> ">go!</a> ||
+     <a href="/savedRecipes/remove/<%=item._id %>">remove</a>
+     <br>
+<% }) %>
+<br>
+<h2>Add a recipe to your collection:</h2> <br>
+
+<form method="post" action="savedRecipes"><br>
+  Enter your recipe title:
+  <input type="text"
+         name="item"
+         placeholder="Recipe name"><br>
+  Enter the link to your recipe:
+  <input type="text"
+         name="slink"
+         placeholder="Recipe link"><br>
+
+  What type of recipe is this?
+  <select name="rtype">
+    <option>Breakfast</option>
+    <option>Lunch</option>
+    <option>Dinner</option>
+    <option>Baking/Dessert</option>
+  </select>
+<br>
+  How challenging is this recipe?:<br>
+   Easy <input type="radio" name="dif" value="Easy"><br>
+   Intermediate  <input type="radio" name="dif" value="Intermediate"><br>
+   Difficult <input type="radio" name="dif" value="Difficult"><br>
+   <hr>
+   <br>
+  <input type="submit" value="Add Recipe">
+</form>
+
+<hr>
+<h2>Your Favorite Recipe Sites</h2>
+<ol>
+     <li><a href="https://www.chelseasmessyapron.com/">Messy Apron</a></li>
+     <li><a href="https://www.allrecipes.com/">All Recipes</a></li>
+</ol>
+<hr>
+
+
+<%- include('bootfooter') -%>
