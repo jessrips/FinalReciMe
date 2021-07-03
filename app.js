@@ -26,6 +26,7 @@ const loggingRouter = require('./routes/logging');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const savedRecipesRouter= require('./routes/savedRecipes');
+const mealPlannerRouter = require('./routes/plannedMeals');
 
 
 
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/savedRecipes', savedRecipesRouter);
+app.use('/plannedMeals', mealPlannerRouter);
 
 app.get('/profiles',
     isLoggedIn,

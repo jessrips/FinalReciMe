@@ -6,13 +6,22 @@
 </div>
 
 <h2>Your Go-To Recipes</h2>
-<% items.forEach(item => { %>
-     <li>Name: <%= item.item %> | Type: <%= item.recipeType %> | Difficulty: <%=item.difficulty %></li>
-     <a href="<%= item.sourceLink %> ">go!</a> ||
-     <a href="/savedRecipes/remove/<%=item._id %>">remove</a>
-     <br>
-<% }) %>
 <br>
+
+      <table class="table table-bordered">
+        <tbody>
+          <% items.forEach(item => { %>
+               <tr>
+                 <td>Name: <%= item.item %></td>
+                 <td>Type: <%= item.recipeType %></td>
+                 <td>Difficulty: <%=item.difficulty %></td>
+                 <td><a href="<%= item.sourceLink %> ">go!</a></td>
+                 <td><a href="/savedRecipes/remove/<%=item._id %>">remove</a></td>
+              </tr>
+          <% }) %>
+        </tbody>
+      </table><br>
+
 <h2>Add a recipe to your collection:</h2> <br>
 
 <form method="post" action="savedRecipes"><br>
